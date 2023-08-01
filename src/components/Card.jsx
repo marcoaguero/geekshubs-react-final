@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Card = (props) => {
   const img_url = "https://image.tmdb.org/t/p/w500/";
   const image = img_url + props.item.poster_path;
+  console.log(image);
   if (props.typeObject === "movie") {
     return (
       <div className="card col-3">

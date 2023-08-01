@@ -18,6 +18,7 @@ const Search = (props) => {
   useEffect(() => {
     search(query, searchUrl).then((res) => setItems(res.data.results));
   }, [query, searchUrl]);
+  console.log(items);
 
   if (items.length === 0) {
     return <h2 className="text-center m-2">Use searchbar on the nav menu</h2>;
@@ -27,7 +28,7 @@ const Search = (props) => {
         <div id={props.type}>
           <div className="d-flex flex-wrap">
             {items?.map((item) => (
-              <Card type={item} key={item.id} />
+              <Card typeObject={props.type} item={item} key={item.id} />
             ))}
           </div>
         </div>
