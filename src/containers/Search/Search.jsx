@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { search } from "../../service";
 import Card from "../../components/Card";
+import { search } from "../../service";
+import { useSearchParams } from "react-router-dom";
 
 const Search = (props) => {
-  const searchMovieUrl = "search/movie";
-  const searchShowUrl = "search/tv";
-  var searchUrl = "";
-  if (props.type === "movie") {
-    searchUrl = searchMovieUrl;
-  } else {
-    searchUrl = searchShowUrl;
-  }
+  var searchUrl = `search/${props.searchUrl}`;
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q");
   const [items, setItems] = useState([]);
@@ -28,7 +21,12 @@ const Search = (props) => {
         <div id={props.type}>
           <div className="d-flex flex-wrap">
             {items?.map((item) => (
-              <Card typeObject={props.type} item={item} key={item.id} />
+              <Card
+                typeObject={props.type}
+                genreUrl={props.genreUrl}
+                item={item}
+                key={item.id}
+              />
             ))}
           </div>
         </div>

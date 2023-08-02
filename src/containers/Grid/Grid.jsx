@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import Card from "../../components/Card";
 import { fetch } from "../../service";
+import { useParams } from "react-router";
 
 const Grid = (props) => {
   const { category } = useParams();
@@ -14,9 +14,14 @@ const Grid = (props) => {
   return (
     <div className={typeObject}>
       <h1 className="text-uppercase text-center">{category}</h1>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap flex-column flex-sm-row">
         {items?.map((item) => (
-          <Card typeObject={props.type} item={item} key={item.id} />
+          <Card
+            typeObject={props.type}
+            genreUrl={props.genreUrl}
+            item={item}
+            key={item.id}
+          />
         ))}
       </div>
     </div>
