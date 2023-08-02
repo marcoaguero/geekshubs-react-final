@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Details from "./containers/Details/Details";
+import Footer from "./components/Footer";
 import Grid from "./containers/Grid/Grid";
 import Home from "./containers/Home/Home";
 import NavBar from "./components/NavBar";
@@ -45,6 +46,7 @@ function App() {
             element={<Details type={typeObject} genreUrl={genreUrl} />}
           />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
