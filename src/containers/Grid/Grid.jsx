@@ -6,7 +6,6 @@ import { useParams } from "react-router";
 const Grid = (props) => {
   const { category } = useParams();
   const typeObject = props.type;
-  console.log(typeObject);
   const [items, setItems] = useState([]);
   useEffect(() => {
     fetch(props.genreUrl, category).then((res) => setItems(res.data.results));

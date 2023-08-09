@@ -4,7 +4,6 @@ import React from "react";
 const Card = (props) => {
   const img_url = "https://image.tmdb.org/t/p/w500/";
   const image = img_url + props.item.poster_path;
-  console.log(image);
   let titleRender = () => {
     if (props.typeObject === "movie") {
       return props.item.title;
